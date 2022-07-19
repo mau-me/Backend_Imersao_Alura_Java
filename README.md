@@ -15,20 +15,20 @@ Essas instruções fornecerão a você uma cópia do projeto em execução em su
 
 ### Pré-requisitos <a name= "pre_requisitos"></a>
 
-What things you need to install the software and how to install them.
+O que você precisa ter instalado:
 
 - `java jdk`
 - `visual studio code` (editor utilizado no projeto)
 
 ## Estrutura de Pastas <a name= "estrutura_de_pastas"></a>
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `src`: a pasta para manter os arquivos fonte
+- `lib`: a pasta para manter as dependências
 
 Os arquivos compilados serão gerados na pasta `bin` por padrão.
 
 > Caso queira customizar a estrutura das pastas, abra `.vscode/settings.json` e atualize as configurações relacionadas lá.
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+A visualização `JAVA PROJECTS` permite que você gerencie suas dependências. Para mais detalhes acesse a documentação [aqui](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
