@@ -10,9 +10,13 @@ public class App {
   public static void main(String[] args) throws Exception {
 
     String url = "https://api.mocki.io/v2/549a5d8b";
+    // String url = "https://alura-filmes.herokuapp.com/conteudos";
+    var fraseFigurinha = "";
     var endereco = URI.create(url);
     var client = HttpClient.newHttpClient();
     var request = HttpRequest.newBuilder(endereco).GET().build();
+
+    GeradoraDeFigurinhas geradoraDeFigurinhas = new GeradoraDeFigurinhas();
 
     HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
@@ -22,10 +26,10 @@ public class App {
     // System.out.println(filmes.size());
     // System.out.println(filmes.get(0).get("title"));
     for (Map<String, String> filme : filmes) {
-      System.out.println(filme.get("title"));
-      System.out.println(filme.get("image"));
-      System.out.println(filme.get("imDbRating"));
-      System.out.println();
+      int notaFilme = (int) Double.parseDouble(filme.get("imDbRating"));
+
+      fraseFigurinha = notaFilme >= 7 ? "TOPZEIRA" : "BAGACEIRA";
+      geradoraDeFigurinhas.cria(filme.get("image"), fraseFigurinha);
     }
   }
 }
