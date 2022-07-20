@@ -4,9 +4,6 @@
 
 ### Java ###
 
-# Lib files
-!lib/*.jar
-
 # Compiled class file
 *.class
 
@@ -27,6 +24,8 @@
 *.zip
 *.tar.gz
 *.rar
+# Lib files
+!lib/*.jar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
