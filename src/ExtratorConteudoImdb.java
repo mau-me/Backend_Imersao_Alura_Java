@@ -16,7 +16,7 @@ public class ExtratorConteudoImdb implements ExtratorConteudo {
     for (Map<String, String> atributos : listaAtributos) {
       var titulo = atributos.get("title");
       var urlImage = atributos.get("image");
-      float nota = Float.parseFloat(atributos.get("imDbRating"));
+      float nota = (float) Float.parseFloat(atributos.get("imDbRating"));
 
       var conteudo = new Conteudo(titulo, urlImage, nota);
       conteudos.add(conteudo);
