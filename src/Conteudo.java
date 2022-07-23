@@ -1,9 +1,9 @@
 public class Conteudo {
   private final String titulo;
   private final String urlImagem;
-  private Float nota;
+  private float nota;
 
-  public Float getNota() {
+  public float getNota() {
     return nota;
   }
 
@@ -12,7 +12,7 @@ public class Conteudo {
     this.urlImagem = urlImagem;
   }
 
-  public Conteudo(String titulo, String urlImagem, Float nota) {
+  public Conteudo(String titulo, String urlImagem, float nota) {
     this.titulo = titulo;
     this.urlImagem = urlImagem;
     this.nota = nota;
