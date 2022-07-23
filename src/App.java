@@ -17,11 +17,10 @@ public class App {
 
     fraseFigurinha = "TOPZEIRA";
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < conteudos.size(); i++) {
       Conteudo conteudo = conteudos.get(i);
-      System.out.println(conteudo.getTitulo() + "" + conteudo.getNota());
 
-      geradoraDeFigurinhas.cria(conteudo.getUrlImagem(), fraseFigurinha);
+      geradoraDeFigurinhas.cria(conteudo, fraseFigurinha);
     }
 
     // System.out.println(filmes.size());
