@@ -131,7 +131,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # Output
-output/*
+output/**/*.png
+output/**/*.jpg
+
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,java,macos,windows
 
