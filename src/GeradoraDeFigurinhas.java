@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 
 public class GeradoraDeFigurinhas {
 
-  public void cria(String url, String fraseFigurinha) throws Exception {
+  public void cria(Conteudo conteudo, String fraseFigurinha) throws Exception {
 
     /*
      * InputStream Criado de um Arquivo Local
@@ -22,28 +22,37 @@ public class GeradoraDeFigurinhas {
      */
 
     // InputStream Criado de um Arquivo disponível em uma URL
-    InputStream inputStream = new URL(url).openStream();
+    InputStream inputStream = new URL(conteudo.getUrlImagem()).openStream();
     BufferedImage imagemOriginal = ImageIO.read(inputStream);
 
     int largura = imagemOriginal.getWidth();
-    int altura = (imagemOriginal.getHeight() + 200);
+    int altura = (int) (imagemOriginal.getHeight() + (imagemOriginal.getHeight() * 0.15));
+
     String nomeArquivo = RandomStringUtils.randomAlphabetic(15) + ".png";
+    int nota = (int) conteudo.getNota();
+
+    if (nota > 0) {
+      fraseFigurinha += " -> ";
+      for (int i = 0; i < nota; i++) {
+        fraseFigurinha += "🔝";
+      }
+    }
 
     BufferedImage novaImagem = new BufferedImage(largura, altura, BufferedImage.TRANSLUCENT);
 
     Graphics2D grafico = (Graphics2D) novaImagem.getGraphics();
     grafico.drawImage(imagemOriginal, 0, 0, null);
 
-    Font fonte = new Font(Font.MONOSPACED, Font.BOLD, 52);
+    int fontSize = (int) (largura * 0.05);
+    int larguraFrase = (int) (largura - largura * 0.9);
+    int alturaFrase = (int) (altura - altura * 0.05);
+
+    Font fonte = new Font(Font.MONOSPACED, Font.BOLD, fontSize);
     grafico.setFont(fonte);
-    grafico.drawString(fraseFigurinha, largura - 480, (altura - 100));
+    grafico.drawString(fraseFigurinha, larguraFrase, alturaFrase);
+    // grafico.drawString(starRating, largura - 480, (altura - 50));
 
     ImageIO.write(novaImagem, "png", new File("output/img/" + nomeArquivo));
   }
 
-  // public static void main(String[] args) throws Exception {
-  // var Gerador = new GeradoraDeFigurinhas();
-
-  // Gerador.cria("https://imersao-java-apis.s3.amazonaws.com/TopMovies_1.jpg");
-  // }
 }
